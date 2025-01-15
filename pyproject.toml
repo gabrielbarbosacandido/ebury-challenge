@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "ebury-challange"
+version = "0.0.1"
+description = "This project extracts and transform customer_transaction data from source filesystem using the `dlt` to ingestion and dbt` to clean, enrich and data modeling"
+authors = ["Gabriel Candido <gabcandido98@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+dlt = {extras = ["postgres"], version = "^1.5.0"}
+apache-airflow = "2.10.2"
+astronomer-cosmos = "1.8.1"
+dbt-postgres = "1.8.2"
+dbt-core = "1.8.2"
+pandas = "2.1.4"
+
+[poetry.group.dev.dependencies]
+pytest = "^6.0"
+pytest-mock = "^3.7"
+pytest-cov = "^4.0"
+flake8 = "^5.0"
+mypy = "^0.990"
+
+[build-system]
+requires = ["poetry-core==2.0.0"]
+build-backend = "poetry.core.masonry.api"
