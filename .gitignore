@@ -1,6 +1,8 @@
 target/
-dbt_modules/
+dbt_/
 logs/
-**/.DS_Store
-.user
+dbt/.user.yml/
 **/__pycache__/
+venv
+.env
+.venv
