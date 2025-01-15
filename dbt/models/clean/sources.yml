@@ -1,0 +1,28 @@
+
+version: 2
+
+sources:
+  - name: raw_customer_transactions
+    description: "Source table containing raw customer transaction data."
+    database: prod
+    schema: raw
+    tables:
+      - name: customer_transactions
+        description: "Raw transactions data."
+        columns:
+          - name: transaction_id
+            description: "Unique identifier for each transaction."
+          - name: customer_id
+            description: "Unique identifier for each customer."
+          - name: transaction_date
+            description: "Date of the transaction."
+          - name: product_id
+            description: "Unique identifier for each product."
+          - name: product_name
+            description: "Name of the product."
+          - name: quantity
+            description: "Quantity of items in the transaction."
+          - name: price
+            description: "Price of the product."
+          - name: tax
+            description: "Tax applied to the transaction."

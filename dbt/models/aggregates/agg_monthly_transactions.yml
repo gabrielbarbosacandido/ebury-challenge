@@ -1,0 +1,21 @@
+
+version: 2
+
+models:
+  - name: agg_monthly_transactions
+    description: "Aggregated table summarizing monthly transactional data by customer."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - not_null
+      - name: transaction_month
+        description: "Month of the transaction."
+        tests:
+          - not_null
+      - name: transaction_count
+        description: "Number of transactions in the month."
+      - name: total_quantity
+        description: "Total quantity of items in the month."
+      - name: total_value
+        description: "Total value of transactions in the month, including tax."

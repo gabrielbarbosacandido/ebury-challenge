@@ -1,0 +1,12 @@
+ebury_challenge:
+  target: prod
+  outputs:
+    prod:
+      type: postgres
+      host: "{{ env_var('PG_HOST') }}"
+      database: "{{ env_var('PG_DATABASE') }}"
+      user: "{{ env_var('DBT_USER') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      schema: "raw"
+      port: 5432
+      threads: 4

@@ -1,0 +1,16 @@
+
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Dimension table containing unique customer data."
+    columns:
+      - name: customer_key
+        description: "Surrogate key for the customer."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Original unique identifier for the customer."
+        tests:
+          - not_null

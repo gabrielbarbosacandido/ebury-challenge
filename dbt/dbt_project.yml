@@ -1,0 +1,19 @@
+name: ebury_challenge
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analysis"]
+macro-paths: ["macros"]
+
+models:
+  jaffle_shop:
+    marts:
+      schema: marts
+      materialized: table
+    aggregates:
+      schema: enrich
+      materialized: table
+    clean:
+      schema: clean
+      materialized: table
