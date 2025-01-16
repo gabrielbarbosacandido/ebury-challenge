@@ -57,6 +57,7 @@ This challenge involves building a data pipeline to extract customer transaction
 
 - **dbt** (Data Build Tool):
   - `dbt_project.yml`: The configuration file for the dbt project, which defines project-specific settings such as data warehouse connections, materializations, and other configurations.
+  - `profiles.yml`: A configuration file for dbt profiles, which defines the database connection settings required to run dbt models.
   - **macros**:
     - `generate_schema_name.sql`: A SQL file containing custom macros used within dbt models. These macros assist in automating tasks, such as dynamically generating schema names.
   - **models**:
@@ -71,7 +72,7 @@ This challenge involves building a data pipeline to extract customer transaction
       - `dim_customers.yml`: A YAML configuration file for the `dim_customers` table.
       - `fact_transactions.sql`: A SQL model for creating the fact table of transactions.
       - `fact_transactions.yml`: A YAML configuration file for the `fact_transactions` table.
-  - `profiles.yml`: A configuration file for dbt profiles, which defines the database connection settings required to run dbt models.
+
   - **tests**:
     - `test_agg_monthly_transactions.sql`: A SQL test file to validate the correctness of the monthly transaction aggregation model.
     - `test_dim_customers.sql`: A SQL test file to ensure the customer dimension model is correct.
