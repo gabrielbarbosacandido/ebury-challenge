@@ -9,7 +9,7 @@ This challenge involves building a data pipeline to extract customer transaction
 - **Orchestrator**: Airflow
 
 # Repository Structure
-
+```bash
 ├── dags  
 │   └── ebury_dag.py  
 ├── data  
@@ -48,7 +48,7 @@ This challenge involves building a data pipeline to extract customer transaction
 └── scripts  
     ├── project_config.sh  
     └── setup.sh  
-
+```
 - **dags**:
   - `ebury_dag.py`: It is responsible for scheduling and managing the execution of tasks such as data extraction, transformation, and loading.
 
