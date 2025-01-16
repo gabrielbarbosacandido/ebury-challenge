@@ -19,7 +19,7 @@ with DAG(
     schedule_interval="@daily",
     description="""
         This DAG extracts and transform customer_transaction data from source filesystem 
-        using the `dlt` to ingestion and `dbt` to clean, enrich and data modeling.
+        using the `dlt` to ingestion and `dbt` to clean, analytics and data modeling.
     """,
     catchup=ct.CATCHUP,
 ) as dag:

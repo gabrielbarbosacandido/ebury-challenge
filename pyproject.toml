@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "ebury-challange"
 version = "0.0.1"
-description = "This project extracts and transform customer_transaction data from source filesystem using the `dlt` to ingestion and dbt` to clean, enrich and data modeling"
+description = "This project extracts and transform customer_transaction data from source filesystem using the `dlt` to ingestion and dbt` to clean, analytics and data modeling"
 authors = ["Gabriel Candido <gabcandido98@gmail.com>"]
 
 [tool.poetry.dependencies]

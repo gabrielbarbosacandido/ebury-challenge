@@ -7,12 +7,12 @@ analysis-paths: ["analysis"]
 macro-paths: ["macros"]
 
 models:
-  jaffle_shop:
+  ebury_challenge:
+    aggregates:
+      schema: analytics
+      materialized: table
     marts:
       schema: marts
-      materialized: table
-    aggregates:
-      schema: enrich
       materialized: table
     clean:
       schema: clean
