@@ -100,7 +100,7 @@ The challenge involves extracting data from a CSV file and storing it in a raw l
   - `setup.sh`: A shell script for setting up the environment and dependencies.
 
 
-## How to run the Project
+## Running the Project
 
 In the **scripts** folder, an automation has been created to bring up all the infrastructure, so execute the following command:
 
