@@ -13,6 +13,7 @@ from cosmos import (
 import constants as ct
 from dlthub import ingestion
 
+
 with DAG(
     dag_id="daily_extraction_customer_transactions_data",
     default_args={"owner": ct.OWNER, "start_date": datetime(2025, 1, 9), "retries": 0},
@@ -23,7 +24,6 @@ with DAG(
     """,
     catchup=ct.CATCHUP,
 ) as dag:
-
     run_dlthub = PythonOperator(
         task_id=f"el_{ct.TABLE_NAME}_csv_to_postegres",
         python_callable=ingestion.run_pipeline,
@@ -37,7 +37,6 @@ with DAG(
             "to_date": "{{ ds }}",
         },
     )
-
     run_dbt = DbtTaskGroup(
         group_id="transformation",
         project_config=ProjectConfig(
@@ -62,5 +61,4 @@ with DAG(
             "install_deps": True,
         },
     )
-
     run_dlthub >> run_dbt

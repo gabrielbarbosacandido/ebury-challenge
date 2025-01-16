@@ -1,9 +1,10 @@
 name: Build and Deploy Docker Image
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["CI - Run Unit Tests"]
+    types:
+      - completed
 
 jobs:
   deploy:

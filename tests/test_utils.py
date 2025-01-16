@@ -1,5 +1,4 @@
 import pytest
-from datetime import datetime
 
 from include.utils import validate_date_format
 

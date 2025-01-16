@@ -1,0 +1,44 @@
+name: CI - Run Unit Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        export PATH="$HOME/.local/bin:$PATH"
+
+    - name: Install dependencies with Poetry
+      run: |
+        poetry install
+
+    - name: Run flake8
+      run: |
+        export PYTHONPATH="."
+        poetry run pytest --flake8
+
+    - name: Run tests with pytest
+      run: |
+        export PYTHONPATH="."
+        poetry run pytest
+    - name: Upload test results
+      if: failure() 
+      uses: actions/upload-artifact@v3
+      with:
+        name: unittest-logs
+        path: unittest-report.xml

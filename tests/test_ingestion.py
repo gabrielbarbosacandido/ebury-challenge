@@ -2,7 +2,6 @@ import pytest
 from unittest.mock import patch, MagicMock
 
 from dlthub.ingestion import _create_filesystem_pipeline, run_pipeline
-import dlt
 
 from include import constants as ct
 
