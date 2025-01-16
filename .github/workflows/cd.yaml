@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build_and_deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,11 +24,11 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/my-image:${{ github.sha }} .
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/ebury-airflow-challenge:${{ github.sha }} .
 
     - name: Push the Docker image to Docker Hub
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/my-image:${{ github.sha }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/ebury-airflow-challenge:${{ github.sha }}
 
     - name: Logout from Docker Hub
       run: docker logout
