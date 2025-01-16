@@ -2,7 +2,7 @@ name: Build and Deploy Docker Image
 
 on:
   workflow_run:
-    workflows: ["Unit Tests"]
+    workflows: ["test"]
     types:
       - completed
 

@@ -28,7 +28,15 @@ jobs:
         poetry install --no-root
 
     - name: Set PYTHONPATH environment variable
-      run: echo "PYTHONPATH=." >> $GITHUB_ENV
+      run: |
+        echo "PYTHONPATH=." >> $GITHUB_ENV
+        airflow connections add 'EBURY_DATABASE_CONN' \
+            --conn-type 'postgres' \
+            --conn-host 'your_host' \
+            --conn-schema 'your_database' \
+            --conn-login 'your_username' \
+            --conn-password 'your_password' \
+            --conn-port '5432'
 
     - name: Run flake8
       run: |
