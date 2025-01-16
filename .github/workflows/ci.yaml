@@ -30,7 +30,7 @@ jobs:
     - name: Set environment variable
       run: |
         echo "PYTHONPATH=." >> $GITHUB_ENV
-        poetru run airflow db init
+        poetry run airflow db init
         poetry run airflow connections add 'EBURY_DATABASE_CONN' \
             --conn-type 'postgres' \
             --conn-host 'your_host' \
