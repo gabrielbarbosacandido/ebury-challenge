@@ -1,6 +1,6 @@
 # ebury-challenge
 
-This challenge involves building a data pipeline to extract customer transaction data from a CSV filesystem. The challenge requires the use of on-premises resources, and the data platform stack consists of the following tools. In addition to extracting data, they were cleaned in the clean layer, modeled in the mart layer, and aggregated in the analytics layer.
+The challenge involves extracting data from a CSV file and storing it in a raw layer within a PostgreSQL database. This raw data is then processed through several stages, including data cleaning, type conversion, dimensional modeling, and insights generation via data aggregations. The challenge requires the use of on-premises resources, and to address this, the following data stack was employed.
 
 - **Infra**: Docker
 - **Storage**: Postgres
