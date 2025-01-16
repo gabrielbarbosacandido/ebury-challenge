@@ -1,4 +1,4 @@
-name: CI - Run Unit Tests
+name: Unit Tests
 
 on:
   push:
@@ -25,10 +25,10 @@ jobs:
 
     - name: Install dependencies
       run: |
-        poetry install --all-extras --no-root
+        poetry install
 
     - name: Set PYTHONPATH environment variable
-      run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+      run: echo "PYTHONPATH=." >> $GITHUB_ENV
 
     - name: Run flake8
       run: |
