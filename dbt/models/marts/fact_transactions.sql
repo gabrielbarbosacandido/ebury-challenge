@@ -1,4 +1,3 @@
-
 select
     transaction_id,
     customer_id,

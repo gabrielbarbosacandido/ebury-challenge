@@ -1,6 +1,3 @@
-
-version: 2
-
 models:
   - name: dim_customers
     description: "Dimension table containing unique customer data."

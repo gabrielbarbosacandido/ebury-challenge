@@ -1,6 +1,3 @@
-
-version: 2
-
 sources:
   - name: raw_customer_transactions
     description: "Source table containing raw customer transaction data."

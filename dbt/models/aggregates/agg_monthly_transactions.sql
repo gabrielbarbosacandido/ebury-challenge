@@ -1,4 +1,3 @@
-
 with monthly_transactions as (
     select
         customer_id,

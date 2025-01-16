@@ -1,7 +1,3 @@
-{{ config(
-    schema='clean'
-) }}
-
 with raw_data as (
     select
         transaction_id::varchar as transaction_id,

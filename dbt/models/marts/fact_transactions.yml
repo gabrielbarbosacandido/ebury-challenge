@@ -1,6 +1,3 @@
-
-version: 2
-
 models:
   - name: fact_transactions
     description: "Fact table containing transactional data at the transaction level."
