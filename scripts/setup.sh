@@ -11,19 +11,16 @@ build_airflow_image() {
     fi
 }
 
-
 start_airflow() {
     build_airflow_image
     echo "Starting Airflow..."
     docker-compose -f docker-compose.yaml up -d
 }
 
-
 stop_airflow() {
     echo "Stopping Airflow..."
     docker-compose -f docker-compose.yaml down -v
 }
-
 
 main() {
     local func="$1"
