@@ -1,7 +1,7 @@
 name: CI - Run Unit Tests
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
