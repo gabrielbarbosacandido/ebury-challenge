@@ -1,26 +1,30 @@
 #!/bin/bash
 source scripts/project_config.sh 
 
+# Function to check if the image exists locally and pull it if not
 build_airflow_image() {
     if ! docker image inspect "$AIRFLOW_IMAGE_URI" > /dev/null 2>&1; then
-        echo "Construindo a imagem do Airflow..."
-        docker build -t "$AIRFLOW_IMAGE_URI" -f Dockerfile .
+        echo "Building the Airflow image..."
+        docker pull "$AIRFLOW_IMAGE_URI"
     else
-        echo "Imagem $AIRFLOW_IMAGE_URI já está instalada."
+        echo "Image $AIRFLOW_IMAGE_URI is already installed."
     fi
 }
 
+# Function to start the Airflow service using Docker Compose
 start_airflow() {
     build_airflow_image
-    echo "Iniciando o Airflow..."
+    echo "Starting Airflow..."
     docker-compose -f docker-compose.yaml up -d
 }
 
+# Function to stop the Airflow service
 stop_airflow() {
-    echo "Parando o Airflow..."
+    echo "Stopping Airflow..."
     docker-compose -f docker-compose.yaml down -v
 }
 
+# Main function to handle the chosen task
 main() {
     local func="$1"
     
@@ -35,7 +39,7 @@ main() {
             stop_airflow
             ;;
         *)
-            echo "Função não encontrada: $func"
+            echo "Function not found: $func"
             exit 1
             ;;
     esac

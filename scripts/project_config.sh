@@ -1,4 +1,4 @@
-export AIRFLOW_IMAGE_URI="ebury-challenge-airflow:latest"
+export AIRFLOW_IMAGE_URI="gbcandido11/ebury-airflow-challenge:ef29de058ea4ba0b8d1cf6f93938c7d89e9f1a3c"
 export EBURY_USER="ebury"
 export EBURY_PASSWORD="ebury"
 export EBURY_DATABASE_CONN="postgresql://ebury:ebury@ebury-data-warehouse:5432/prod"
