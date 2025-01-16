@@ -130,3 +130,37 @@ docker-compose down
 If everything works correctly, open Airflow at **http://localhost:8080** on your host machine to access Airflow. Upon arrival, you will be able to view the `daily_extraction_customer_transactions_data` DAG. This DAG represents the workflow for addressing the challenge, as illustrated in the image below.
 
 ![Ebury Challenge Pipeline](docs/airflow_task.png)
+
+Running the pipeline will first result in the data being ingested by dlthub into the raw layer in Postgres. The image below illustrates the table in Postgres in its raw format.
+
+![Raw Table](docs/raw_customers_transactions.png)
+
+In the next stage of the pipeline, the data was transformed in the clean layer. This involved correcting data formats, handling missing values, and filtering out invalid records. Specifically, the transaction date was standardized to a consistent format, missing customer IDs were replaced with 'unknown', and invalid price and tax values were cleaned and standardized.
+
+![Clean Table](docs/clean_customers_transactions.png)
+
+Subsequently, the data was modeled, in the Mart Layer, into dimensional and fact tables.
+
+- Fact Table: A new column total_value was created in the fact table, calculated by multiplying the quantity of products by the price and adding the tax. This table holds the transaction-level data, including the transaction ID, customer ID, product information, and the newly calculated total value for each transaction.
+
+![Fact Table](docs/fact_transactions.png)
+
+- Dimension Table: A customer dimension table was created by selecting distinct customer IDs from the clean transaction data. Each customer was assigned a unique customer_key using the row_number() function to ensure a unique identifier for each customer.
+
+![Dim Table](docs/dim_customer.png)
+
+Finally, This query aggregates the transaction data by month, calculating the total number of transactions, total quantity, and total value for each customer, based on the fact_transactions table.
+
+![Analytics Table](docs/agg_transactions.png)
+
+As a result, the database was organized into the following layers:
+
+![Layers](docs/db_layers.png)
+
+## References
+- **dlthub Documentation**: [https://dlthub.com/docs/intro](https://dlthub.com/docs/intro)
+- **dbt Documentation**: [https://www.getdbt.com/](https://www.getdbt.com/)
+- **Airflow Documentation** [https://airflow.apache.org/docs/](https://airflow.apache.org/docs/)
+- **Cosmos Documentation** [https://astronomer.github.io/astronomer-cosmos/](https://astronomer.github.io/astronomer-cosmos/)
+- **Poetry Documentation** [https://python-poetry.org/docs/](https://python-poetry.org/docs/)
+- **Docker Documentation** [https://docs.docker.com/](https://docs.docker.com/)
