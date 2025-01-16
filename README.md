@@ -129,7 +129,7 @@ docker-compose down
 
 If everything works correctly, open Airflow at **http://localhost:8080** on your host machine to access Airflow. Upon arrival, you will be able to view the `daily_extraction_customer_transactions_data` DAG. This DAG represents the workflow for addressing the challenge, as illustrated in the image below.
 
-![Ebury Challenge Pipeline](docs/airflow_task.png)
+![Ebury Challenge Pipeline](docs/airflow_tasks.png)
 
 Running the pipeline will first result in the data being ingested by dlthub into the raw layer in Postgres. The image below illustrates the table in Postgres in its raw format.
 
@@ -147,7 +147,7 @@ Subsequently, the data was modeled, in the Mart Layer, into dimensional and fact
 
 - Dimension Table: A customer dimension table was created by selecting distinct customer IDs from the clean transaction data. Each customer was assigned a unique customer_key using the row_number() function to ensure a unique identifier for each customer.
 
-![Dim Table](docs/dim_customer.png)
+![Dim Table](docs/dim_customers.png)
 
 Finally, This query aggregates the transaction data by month, calculating the total number of transactions, total quantity, and total value for each customer, based on the fact_transactions table.
 
