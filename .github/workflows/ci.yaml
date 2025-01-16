@@ -32,7 +32,7 @@ jobs:
 
     - name: Run flake8
       run: |
-        poetry run pytest-flake8
+        poetry run pytest --flake8
 
     - name: Run tests with pytest
       run: |
